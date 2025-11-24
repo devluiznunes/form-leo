@@ -3,40 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Endereço</title>
+    <title>Cadastro de Endereço - Endereço Inteligente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 5px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .loading {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #4CAF50;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Cadastro de Endereço</h1>
+    <h1>Cadastro de Endereço Inteligente Via API</h1>
     
     <form id="formEndereco">
         <div>
             <label for="cep">CEP:</label>
             <input type="text" id="cep" name="cep" maxlength="9" placeholder="00000-000" required>
+            <span id="loadingCep"></span>
+            <div id="erroCep" class="error"></div>
         </div>
-<br>
+
         <div>
             <label for="logradouro">Logradouro:</label>
             <input type="text" id="logradouro" name="logradouro" placeholder="Informe o Logradouro" required>
         </div>
-<br>
+
         <div>
-            <label for="numero">Número:</label>
-            <input type="text" id="numero" name="numero" placeholder="Informe o número" required>
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro" placeholder="Informe o Bairro" required>
         </div>
-<br>
+
+        <div>
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" placeholder="Informe a Cidade" required>
+        </div>
+
         <div>
             <label for="uf">UF:</label>
             <input type="text" id="uf" name="uf" maxlength="2" placeholder="Informe o Estado" required>
         </div>
-<br>
+
+        <div>
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" placeholder="Informe o número" required>
+        </div>
+
         <div>
             <label for="complemento">Complemento:</label>
             <input type="text" id="complemento" name="complemento" placeholder="Adicione um complemento">
         </div>
-<br>
+
         <button type="submit">Enviar Cadastro</button>
     </form>
 
-    <script src="endereco.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
